@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<center>
+    <h1>Etnoturismo de NARIÑO </h1>
+</center>
+
+<center> 
+<div class="art-postcontent clearfix"><div class="art-article">
+    <p></p>
+    <h2 style="text-align: center;">Malocas</h2>
+    
+    
+    <p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'portfolio/malocas-2.jpg' %}" alt="cuy Copy"></p>
+    <p>&nbsp;</p>
+    <p>&ZeroWidthSpace;Las Malocas «Un Plan de Respeto«: se caracterizan por ser espacios sagrados de encuentro, arte y pensamiento, puente transmisor de emociones y sensaciones.</p>
+    <p>&ZeroWidthSpace;Sanación y Terapia es la dimensión lúdica de esta experiencia dinámica de integración que invita a participar del contacto y desarrollo físico, mental y espiritual.</p>
+    <p>&ZeroWidthSpace;Se celebra en torno a ellas el Rito del Yagé o Ayahuasca, planta sagrada utilizada ancestralmente por las Culturas Indígenas de la Amazonía y el Putumayo; actualmente legada por sabedores Indígenas que lo ofrecen en las Malocas.</p>
+
+    <h2 style="text-align: center;">Barniz de Pasto una tradicion Ancestral que busca aun sobrevivir.</h2>
+    <p>&ZeroWidthSpace;Este oficio artesanal es el más representativo del departamento de Nariño. Consiste en el trabajo de aplicación de telas de contextura elástica, elaboradas con una laca vegetal derivada de la resina producida por el árbol mopa-mopa. Dichas substancias son previamente procesadas con técnicas de maceración, molido y cocción para su conversión, por estiramiento, en telas transparentes que se aplican sobre superficies principalmente de madera.Anteriormente, las telas de estas resinas se aplicaban alternándolas con laminillas de papel de colores. Luego, se comenzó a teñir directamente la masa de mopa-mopa con tintes naturales</p>
+    <p>&ZeroWidthSpace;El trabajo de diseño se desarrolla directamente sobre el producto en proceso, con la combinación de telas de diferentes colores y recortes a modo de dibujos, ejecutados sobre las superficies a decorar. Con este tipo de trabajo (muy exigente en cuanto al diseño) se plasman figuras sobre las superficies planas o en relieve y se da el acabado a las figuras de piezas talladas en volumen.</p>
+    <p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'portfolio/barniz-de-pasto.gif' %}" alt="fritada las lajas nariño" width="482" height="188"></p>
+    <p><strong>Fuente: El Tiempo</strong></p></div></div>
+</center>
+
+
+
+
+
+
+{% for post in posts %}
+
+<div class="py-3">
+
+  <div class="card card-body bg-black">
+    <div class="row">
+
+      <div class="col-3">
+        <img class="img-fluid" src="{{post.image.url}}" alt="{{post.title}}">
+
+      </div>
+      <div class="col-9">
+
+        <h1>{{post.title}}</h1>
+        <p>{{post.description|striptags|truncatechars:100}}</p>
+        <p>{{post.date|date:'M d Y'|upper}}</p>
+
+        <a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

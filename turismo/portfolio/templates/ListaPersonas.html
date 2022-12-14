@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<center>
+    <h1>INSCRIPCIONES EXPERIENCIA NARIÑO</h1>
+</center>
+
+<div class="container py-4">
+    <div class="">
+      <div class="card-body  border border-info p-5">
+
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOMBRES</th>
+                <th scope="col">APELLIDOS</th>
+                <th scope="col">PROFESION</th>
+                <th scope="col">RESIDENCIA</th>
+                <th scope="col">DESTINO</th>
+                <th scope="col">ESTADO</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for persona in personas %}
+              <tr>
+                <th scope="row">{{ persona.id }}</th>
+                <td>{{ persona.nombres }}</td>
+                <td>{{ persona.apellidos }}</td>
+                <td>{{ persona.profesion }}</td>
+                <td>{{ persona.residencia }}</td>
+                <td>{{ persona.destino }}</td>
+                <td>{{ persona.estado }}</td>
+              </tr>
+            {% endfor %}
+              
+            </tbody>
+          </table>  
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

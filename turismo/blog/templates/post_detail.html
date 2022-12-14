@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="text-center">
+
+  <h1>{{post.title}}</h1>
+
+
+  <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+
+
+  <div class="my-4">
+  {{post.description|safe}}
+  </div>
+
+  <div class="my-4">
+    <h2>Localización:</h2>
+    <iframe src="{{post.urlmapa}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+
+</div>
+
+{% endblock %}

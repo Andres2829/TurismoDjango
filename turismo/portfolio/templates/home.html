@@ -1,0 +1,165 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Hero Section -->
+
+
+<header class="row text-center">
+</header>
+
+
+<style type="text/css">
+
+  body{
+    background: #000;
+    padding:5px;
+  }
+@-webkit-keyframes animar{
+  0%{-webkit-transform:translate(0px,0px);}
+  10%{-webkit-transform:translate(20px,0px);}
+  20%{-webkit-transform:translate(0px,0px);}
+  30%{-webkit-transform:translate(20px,0px);}
+  40%{-webkit-transform:translate(0px,0px);}
+  50%{-webkit-transform:translate(20px,0px);}
+  60%{-webkit-transform:translate(0px,0px);}
+  70%{-webkit-transform:translate(20px,0px);}
+  80%{-webkit-transform:translate(0px,0px);}
+  90%{-webkit-transform:translate(20px,0px);}
+  100%{-webkit-transform:translate(0px,0px);}
+}
+  .temblor{
+    margin:0 auto;
+    border-radius: 8px;
+    font-family: Arial;
+    text-align: center;
+    color:white;
+  }
+  .temblor:hover{
+    -webkit-animation:animar .6s 1;
+  }
+</style>
+
+
+<center >
+  <img  srcset="{% static 'portfolio/final.jpg' %}"  sizes="(max-width: 2000px) 80vw, 2000px"/>
+</center>
+
+
+<!-- Porfolio Section -->
+<div class="row my-4 text-center">
+  <p>El Departamento de Nariño, es uno de los treinta y dos departamentos que, junto con Bogotá, Distrito Capital, 
+    componen el territorio de la República de Colombia. Se localiza en el suroeste del país, en la frontera con la 
+    República del Ecuador, haciendo parte de la región Andina. Cuenta con una superficie 33.268 Km², lo que representa 
+    el 2.91 % del territorio nacional. Su capital es la ciudad de Pasto y está dividido política y administrativamente 
+    en 64 municipios.</p>
+
+
+
+
+    <div id="contacto">
+      <nav>
+        <ul class="tabs">
+          <li class="temblor" rel="tab1" href="#"><img src="{% static 'portfolio/mapa.png' %}"><a id="pruebas" href="/#pruebas">Selecciona tu destino</a></li>
+          <li class="temblor" rel="tab1" href="#"><img src="{% static 'portfolio/editar.png' %}"><a id="contacto" class="nav-link" href="{% url 'registrarPersona' %}">Inscribete</a></li>
+          <li class="temblor" rel="tab1" href="#"><img src="{% static 'portfolio/cheque.png' %}"><a class="nav-link" href="{% url 'listarPersona' %}">Conoce los resultados y viaja</a></li>
+          <li class="temblor" rel="tab1" href="#"><img id="contacto" src="{% static 'portfolio/descarga.png' %}"><a href="{% static 'portfolio/paquetes_de_tours.pdf' %}" target="_blank">Paquetes de Tours</a></li>
+       </ul>
+      </nav>
+    </div>
+    
+    
+
+   <style type="text/css">
+          ul.tabs {
+        text-align: center;
+        background-color: #404244;
+      }
+
+      ul.tabs li {
+        float: none !important;
+        display: inline-block;
+        padding: 8px;
+      }
+
+      li>a{
+                color: rgb(9, 137, 211);
+                padding: 10px;
+                display: block;
+                text-decoration: none;
+                min-width: 100px;
+              }
+              li>a:hover{
+                background-color: #eaeaea;
+              }
+
+      nav ul li a:hover{
+   background-color: #b0bbca;
+      }
+   </style>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h3>Demos un pequeño vistazo</h3>
+
+  {% for project in projects %}
+  <div class="col-md-4 p-4 temblor">
+    <div class="card bg-black card-project ">
+      <img  src="{{project.image.url }}" class="card-img-top" />
+
+      <div class="card-body">
+
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+
+        {% if project.url %}
+        <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer"></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="social">
+  <a href="https://www.facebook.com/102493372518659/posts/102494042518592/?substory_index=0&sfnsn=mo"><img src="{% static 'portfolio/facebook.png' %}" alt="facebook"></a>
+  <a href="https://wa.me/message/YL7CZPFNXTXHM1"><img src="{% static 'portfolio/whatsapp.png' %}" alt="whatsapp"></a>
+  <a href="#"><img src="{% static 'portfolio/linkedin.png' %}" alt="linkedin"></a>
+  <a href="{% static 'portfolio/paquetes_de_tours.pdf' %}"><img src="{% static 'portfolio/logocontacto.jpg' %}" alt="instagram"></a>
+
+</div>
+
+<style type="text/css">
+
+*{box-sizing:border-box;}
+
+.social{
+  /*las imágenes usadas tienen width de 48px*/
+  width:48px;
+  position:fixed;
+  top:50px;
+  right: 40px;
+}
+
+/* Extra centrado vertical*/
+
+.social{
+  /*border:1px solid #000;*/
+  top:50%;
+  height:205px;
+  /*para poner height 192 deberíamos haber indicado en el reset de estilos font-size:0;*/
+  margin-top:-100px;
+}
+</style>
+
+
+
+
+{% endblock %}

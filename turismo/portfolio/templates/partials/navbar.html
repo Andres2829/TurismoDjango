@@ -1,0 +1,113 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+  
+  <div class="elementor-image temblor">
+   <img width="429" height="119" src="{% static 'portfolio/logobaner.jpg' %}" class="elementor-animation-buzz attachment-full size-full" alt=""  sizes="(max-width: 429px) 100vw, 429px">								</a>
+  </div>
+  <div>
+    <img class="temblor" src="{% static 'portfolio/bandera.png' %}" style="float: left">
+  </div>
+
+  <style type="text/css">
+
+    body{
+      background: #000;
+      padding:5px;
+    }
+  @-webkit-keyframes animar{
+    0%{-webkit-transform:translate(0px,0px);}
+    10%{-webkit-transform:translate(20px,0px);}
+    20%{-webkit-transform:translate(0px,0px);}
+    30%{-webkit-transform:translate(20px,0px);}
+    40%{-webkit-transform:translate(0px,0px);}
+    50%{-webkit-transform:translate(20px,0px);}
+    60%{-webkit-transform:translate(0px,0px);}
+    70%{-webkit-transform:translate(20px,0px);}
+    80%{-webkit-transform:translate(0px,0px);}
+    90%{-webkit-transform:translate(20px,0px);}
+    100%{-webkit-transform:translate(0px,0px);}
+  }
+    .temblor{
+      margin:0 auto;
+      border-radius: 8px;
+      font-family: Arial;
+      text-align: center;
+      color:white;
+    }
+    .temblor:hover{
+      -webkit-animation:animar .6s 1;
+    }
+  </style>
+  
+
+  <div class="container">
+    <a class="navbar-brand fw-bold fst-italic temblor" href="/">SENDEROS DEL SUR</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" id="menu">
+        <a class="navbar-brand fw-bold fst-italic" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:posts' %}">Municipios</a>
+        </li>
+        <li><a class="nav-link">Información </a>
+          <ul>
+            <li><a href="/gastronomia">Gastronomía platos típicos</a></li>
+            <li><a href="/etnoturismo">Etnoturismo </a></li>
+            <li><a href="/patronales">Fiestas patronales </a></li>
+          </ul>  
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'registrarPersona' %}">Inscribete</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a class="btn btn-primary btn-sm" href="{% static 'portfolio/paquetes_de_tours.pdf' %}" target="_blank">Paquetes de Tours</a>
+        </li>
+          <style type="text/css">
+              *{
+                margin: 0;
+                padding: 0;
+              }
+              header{
+                font-family: Helvetica;
+                width: 480px;
+                margin: 0 auto;
+              }
+              ul{
+                list-style: none;
+              }
+              #menu li>a{
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding: 10px;
+                display: block;
+                text-decoration: none;
+                min-width: 100px;
+              }
+              #menu li>a:hover{
+                color: #000;
+                background-color: #eaeaea;
+              }
+              #menu>li{
+                float: left;
+                text-align:center
+              }
+              #menu>li>ul{
+                display: none;
+              }
+              #menu>li:hover>ul {
+                display:block;
+              }
+          </style>
+      </ul>
+    </div>
+  </div>
+</nav>
